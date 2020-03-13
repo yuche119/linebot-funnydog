@@ -37,9 +37,16 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    msg = event.message.text # 你傳的的訊息
+    r = '我看不懂你說什麼！'
+    if msg = 'hi':
+        r = 'hi'
+    elif msg = '你吃飯了嗎':
+        r = '我是狗不吃飯只吃肉'
+        
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
+        TextSendMessage(text=r)) # 回覆的訊息內容
 
 import os
 if __name__ == "__main__":
