@@ -40,11 +40,14 @@ def handle_message(event):
     msg = event.message.text # 你傳的的訊息
     r = '我看不懂你說什麼！'
 
-    if msg == 'hi':
+    if msg in ['hi', 'Hi']:
         r = 'hi'
     elif msg == '你吃飯了嗎':
         r = '我是狗不吃飯只吃肉'
-
+    elif msg == '你是誰':
+        r = '我是機器人'
+    elif '訂位' in msg:
+        r = '您想訂位，是嗎？'
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=r)) # 回覆的訊息內容
